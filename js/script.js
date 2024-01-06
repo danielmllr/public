@@ -38,17 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
 const nav_body = document.querySelector('body');
 const navToggle = document.querySelector('#mobile-nav');
 const navList = document.querySelector('nav');
-
-navToggle.addEventListener('click', function() {
-	if (navList.style.display === 'none') {
-		this.setAttribute('aria-expanded', 'true');
-		navList.style.display = 'block';
-		nav_body.classList.add('menu-open');
-		nav_body.style.overflow = 'hidden';
-	} else {
-		navList.style.display = 'none';
-		this.setAttribute('aria-expanded', 'false');
-		nav_body.classList.remove('menu-open');
-		nav_body.style.overflow = 'unset';
-	}
-});
+if (navToggle) {
+	navToggle.addEventListener('click', function() {
+		if (navList.style.display === 'none') {
+			this.setAttribute('aria-expanded', 'true');
+			navList.style.display = 'block';
+			nav_body.classList.add('menu-open');
+			nav_body.style.overflow = 'hidden';
+		} else {
+			navList.style.display = 'none';
+			this.setAttribute('aria-expanded', 'false');
+			nav_body.classList.remove('menu-open');
+			nav_body.style.overflow = 'unset';
+		}
+	});
+}
